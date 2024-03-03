@@ -10,5 +10,5 @@
 
 1. [Meshing examples](meshing/create_mesh.ipynb)
 
-1. [Poisson Equation](poisson_test/poisson_equation.ipynb)
+2. [Poisson Equation](poisson_test/poisson_equation.ipynb)
 
