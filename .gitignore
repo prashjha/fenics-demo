@@ -41,6 +41,11 @@ core.*
 **/build
 **/build*
 
+# ignore directories with the following name
+**/fwd_result
+**/fwd_result*
+**/fwd_result/*
+
 # ide directory
 .idea
 .idea/workspace.xml
