@@ -1,0 +1,20 @@
+name: confen
+channels:
+  - conda
+  - conda-forge
+dependencies:
+  - python=3.8
+  - pip
+  - matplotlib
+  - jupyter
+  - jupyterlab
+  - scipy
+  - psutil
+  - fenics
+  - pip:
+    - h5py
+    - seaborn
+    - hippylib
+    - meshio
+    - pyvista
+    - pygmsh

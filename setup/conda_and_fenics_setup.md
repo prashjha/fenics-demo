@@ -75,6 +75,22 @@ conda activate confen
 conda deactivate
 ```
 
+
+- ***Alternative way:** If there is an issue creating environment with all the packages in [fenics-conda-env.yml](fenics-conda-env.yml) file, consider another environment file [fenics-conda-lean-env.yml](fenics-conda-lean-env.yml) that has smaller number of packages. 
+  - Create environment using this new file if there was an issue using `fenics-conda-env.yml` file as follows:
+  ```sh
+  conda env create -f fenics-conda-lean-env.yml 
+  ```
+  - Next, install the two other key libraries from command line as follows:
+  ```sh
+  # activate env
+  conda activate confen
+  # install pip packages
+  pip install pygmsh meshio
+  # if there was a conda package, say xyz, you will install it using
+  # conda install xyz
+  ```
+
 - test fenics code
 ```sh
 # go to directory where fenics test code is
