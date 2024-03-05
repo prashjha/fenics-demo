@@ -14,3 +14,6 @@
 2. [Poisson Equation](poisson_equation/poisson_equation.ipynb)
 	This jupyter notebook file is also a good starting example of using notebook to seamlessly combine markdown text, python codes, and output of python codes. 
 
+3. [Nonlinear Poisson Equation](nonlinear_poisson_equation/nonlinear_poisson_equation.ipynb)
+	Nonlinear version of Poisson equation is used to show how nonlinear variational problems can be solved in Fenics. Newton and Picard iteration methods are explained and implemented and compared with the Fenics's solve method for nonlinear variational problems. 
+
