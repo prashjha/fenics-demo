@@ -91,7 +91,7 @@ conda deactivate
   # conda install xyz
   ```
 
-- test fenics code
+- test fenics code (**in below, replace the path to `conda.sh` file to the correct path for your installation, e.g., in Mac it could be in `/Users/<user name>/opt/anaconda3/etc/profile.d/`**)
 ```sh
 # go to directory where fenics test code is
 cd ../poisson_test
