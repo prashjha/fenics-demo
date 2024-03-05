@@ -94,7 +94,7 @@ conda deactivate
 - test fenics code (**in below, replace the path to `conda.sh` file to the correct path for your installation, e.g., in Mac it could be in `/Users/<user name>/opt/anaconda3/etc/profile.d/`**)
 ```sh
 # go to directory where fenics test code is
-cd ../poisson_test
+cd fenics_test
 
 # exectute runFenics.sh script or follow the instructions here
 
@@ -108,4 +108,4 @@ conda activate confen
 python ft01_poisson.py
 ```
 
-- visualize [results/solution.pvd](results/solution.pvd) or [results/solution000000.vtu](results/solution000000.vtu) file in paraview
+- visualize [fenics_test/results/solution.pvd](fenics_test/results/solution.pvd) or [fenics_test/results/solution000000.vtu](fenics_test/results/solution000000.vtu) file in paraview
