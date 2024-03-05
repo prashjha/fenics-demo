@@ -17,3 +17,6 @@
 3. [Nonlinear Poisson Equation](nonlinear_poisson_equation/nonlinear_poisson_equation.ipynb)
 	Nonlinear version of Poisson equation is used to show how nonlinear variational problems can be solved in Fenics. Newton and Picard iteration methods are explained and implemented and compared with the Fenics's solve method for nonlinear variational problems. 
 
+4. [Hyperelastic material deformation in 2-d and 3-d](hyperelastic_material_deformation/hyperelastic_material_deformation.ipynb)
+	
+
