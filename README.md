@@ -9,7 +9,7 @@
 ## Examples
 
 1. [Meshing examples](meshing/create_mesh.ipynb)
-	Examples of creating meshes using gmsh using either command `gmsh` or pygmsh python package. It shows also how to create `.geo` file for complex geometries in python and run `gmsh` code in python. If it is 2-d mesh, you can also easily plot the mesh using dolfin plot function. 
+	Examples of creating meshes using either command `gmsh` or pygmsh python package. File also shows how to create `.geo` file for complex geometries in python and run `gmsh` code in python. If it is a 2-d mesh, you can also easily plot the mesh using dolfin plot function. 
 
 2. [Poisson Equation](poisson_test/poisson_equation.ipynb)
 	This jupyter notebook file is also a good starting example of using notebook to seamlessly combine markdown text, python codes, and output of python codes. 
