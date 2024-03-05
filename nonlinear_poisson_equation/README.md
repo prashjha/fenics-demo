@@ -10,12 +10,12 @@ Plot of the solution of the nonlinear Poisson equation:
 
 Comparing Fenics direct solution for nonlinear variational problem and Newton method
 
-<img src="results/compare_direct_newton.png" style="width:400px;">
+<img src="results/compare_direct_newton.png" style="width:1200px;">
 
 Comparing Fenics direct solution for nonlinear variational problem and Picard iteration method
 
-<img src="results/compare_direct_picard.png" style="width:400px;">
+<img src="results/compare_direct_picard.png" style="width:1200px;">
 
 Comparing solutions from all three methods
 
-<img src="results/compare_direct_newton_picard.png" style="width:400px;">
+<img src="results/compare_direct_newton_picard.png" style="width:1200px;">
