@@ -1,23 +1,23 @@
 # install anaconda using terminal
 
-- instructions in the [website](https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart).
+- I found the instructions in this [link](https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart) very useful
 
-- find the conda script `conda.sh` after the installation. In my case it is at `$HOME/anaconda3/etc/profile.d/conda.sh`
+- After the conda installation in your machine, make sure to locate the conda script `conda.sh`. In ubuntu machines, it is usually at `$HOME/anaconda3/etc/profile.d/conda.sh`
 
-## Installation steps following [link](https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart)
+## Installation steps
 
 ```sh
 # 1. Get the name of the latest distribution from https://repo.anaconda.com/archive/
+# `Anaconda3-2024.02-1-Linux-x86_64` is the latest as of March 2024
 
-# 2. Download 
-cd /tmp
-# at the moment `Anaconda3-2024.02-1-Linux-x86_64` is latest
+# 2. Download (use /tmp directory)
+cd /tmp 
 wget https://repo.anaconda.com/archive/Anaconda3-2024.02-1-Linux-x86_64.sh
 
 # run anaconda script and follow prompts (once script has finished running, at the end it will show the path where conda is installed; usually it is at ${HOME}/anaconda3)
 bash Anaconda3-2024.02-1-Linux-x86_64.sh
 
-# enable conda in shell (you can then run command `conda` in terminal)
+# enable conda in shell (so that you can run command `conda` in terminal)
 echo $SHELL
 eval "$($HOME/anaconda3/bin/conda shell.bash hook)"
 
@@ -36,7 +36,7 @@ source $HOME/anaconda3/etc/profile.d/conda.sh
 
 # create fenics environment
 
-- take a look at fenics environment file [fenics-conda-env.yml](fenics-conda-env.yml) where we have all the basic packages (you can add more to the list depending on the needs). The contents of the files are also shown below:
+- Take a look at fenics environment file [fenics-conda-env.yml](fenics-conda-env.yml) that has all the basic packages (you can add more to the list depending on the needs or remove, e.g., hippylib, pyvista, jupyterlab). The file looks as follows:
 ```yml
 name: confen # name of the environment
 channels:
@@ -47,26 +47,26 @@ dependencies:
   - pip             # to install pip packages
   - matplotlib      # for plotting
   - jupyter         # juyter notebook
-  - jupyterlab      # jupyter lab (if you prefer jupyter lab)
-  - scipy
-  - psutil
+  - jupyterlab      # optional
+  - scipy           # optional
+  - psutil          # optional
   - fenics          # fenics package
   - pip:
-    - h5py
+    - h5py          
     - seaborn       # for plotting
-    - hippylib      # for Bayesian inference (not needed)
+    - hippylib      # for Bayesian inference (optional)
     - meshio        # for converting meshes
-    - pyvista       # for plotting and converting meshes
+    - pyvista       # for plotting and converting meshes (optional)
     - pygmsh        # gives python front-end to gmsh meshing library
 ```
 
-- create a conda environment using the environment file [fenics-conda-env.yml](fenics-conda-env.yml)
+- Create a conda environment using the environment file [fenics-conda-env.yml](fenics-conda-env.yml)
 ```sh
 # below will create an environment named `confen` (name is specified in the environment file `fenics-conda-env.yml`)
 conda env create -f fenics-conda-env.yml 
 ```
 
-- test if new environment activates
+- Test if new environment activates and works
 ```sh
 # activate env
 conda activate confen
@@ -76,29 +76,29 @@ conda deactivate
 ```
 
 
-- ***Alternative way:** If there is an issue creating environment with all the packages in [fenics-conda-env.yml](fenics-conda-env.yml) file, consider another environment file [fenics-conda-lean-env.yml](fenics-conda-lean-env.yml) that has smaller number of packages. 
-  - Create environment using this new file if there was an issue using `fenics-conda-env.yml` file as follows:
+- **Alternative way:** If there is an issue creating environment with all the packages in [fenics-conda-env.yml](fenics-conda-env.yml) file, consider another environment file [fenics-conda-lean-env.yml](fenics-conda-lean-env.yml) that has smaller number of packages. Also, due to conflict of new packages with ones in your machine, conda may take long time to find the right versions of some of the packages in conda environment file. It it is taking too long a time, consider creating conda environment using the new file as follows:
+  - Create environment using this file:
   ```sh
   conda env create -f fenics-conda-lean-env.yml 
   ```
   - Next, install the two other key libraries from command line as follows:
   ```sh
-  # activate env
+  # activate env (activate the environment as we want to install the packages inside this environment)
   conda activate confen
   # install pip packages
   pip install pygmsh meshio
-  # if there was a conda package, say xyz, you will install it using
+  # note that if there was a conda package, say 'xyz', you will install it using 'conda' channel as follows
   # conda install xyz
   ```
 
-- test fenics code (**in below, replace the path to `conda.sh` file to the correct path for your installation, e.g., in Mac it could be in `/Users/<user name>/opt/anaconda3/etc/profile.d/`**)
+- Test fenics code (**in below, replace the path to `conda.sh` file to the correct path for your installation, e.g., in Mac it could be in `/Users/<user name>/opt/anaconda3/etc/profile.d/`**)
 ```sh
 # go to directory where fenics test code is
 cd fenics_test
 
 # exectute runFenics.sh script or follow the instructions here
 
-# source conda script
+# source conda script (you may not need this if conda is set correctly in the shell)
 source $HOME/anaconda3/etc/profile.d/conda.sh
 
 # activate conda enviroment
@@ -108,4 +108,4 @@ conda activate confen
 python ft01_poisson.py
 ```
 
-- visualize [fenics_test/results/solution.pvd](fenics_test/results/solution.pvd) or [fenics_test/results/solution000000.vtu](fenics_test/results/solution000000.vtu) file in paraview
+- Visualize [fenics_test/results/solution.pvd](fenics_test/results/solution.pvd) or [fenics_test/results/solution000000.vtu](fenics_test/results/solution000000.vtu) file in paraview
