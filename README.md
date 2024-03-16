@@ -18,6 +18,4 @@
 	Nonlinear version of Poisson equation is used to show how nonlinear variational problems can be solved in Fenics. Newton and Picard iteration methods are explained and implemented and compared with the Fenics's solve method for nonlinear variational problems. 
 
 4. [Elasticity - material deformation in 2-d and 3-d](elasticity/elasticity.ipynb)
-	We consider three type of beam undergoing deformations: isotropic linear elastic beam, orthotropic linear elastic beam, and beam made of hyperealstic material with large deformation theory. 
-	
-
+	We consider three different models (or constitutive relations and small/large deformation theories) of beams subjected to twisting and bending loading: isotropic linear elastic beam, orthotropic linear elastic beam, and beam made of hyperealstic material with large deformation theory. 
