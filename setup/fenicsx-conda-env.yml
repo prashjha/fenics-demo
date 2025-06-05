@@ -1,15 +1,14 @@
-name: confen        # name of the environment
+name: confenx       # name of the environment
 channels:
   - conda
   - conda-forge
 dependencies:
-  - python=3.8      # need this specific version for compatibility with fenics
+  - fenics-dolfinx
   - mpich           # for parallel computing support  
   - pip             # to install pip packages
   - matplotlib      # for plotting
   - jupyter         # jupyter notebook
   - scipy           # optional
-  - fenics
   - pip:
     - h5py          # for HDF5 file support
     - meshio        # for converting meshes

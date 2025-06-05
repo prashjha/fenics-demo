@@ -109,3 +109,120 @@ python ft01_poisson.py
 ```
 
 - Visualize [fenics_test/results/solution.pvd](fenics_test/results/solution.pvd) or [fenics_test/results/solution000000.vtu](fenics_test/results/solution000000.vtu) file in paraview
+
+
+# create fenics environment
+
+- Take a look at fenics environment file [fenicsx-conda-env.yml](fenicsx-conda-env.yml) that has all the basic packages (you can add more to the list depending on the needs or remove, e.g., hippylib, pyvista, jupyterlab). The file looks as follows:
+```yml
+name: confen        # name of the environment
+channels:
+  - conda
+  - conda-forge
+dependencies:
+  - python=3.8      # need this specific version for compatibility with fenics
+  - mpich           # for parallel computing support  
+  - pip             # to install pip packages
+  - matplotlib      # for plotting
+  - jupyter         # jupyter notebook
+  - scipy           # optional
+  - fenics
+  - pip:
+    - h5py          # for HDF5 file support
+    - meshio        # for converting meshes
+    - pyvista[all,trame]    # for plotting and converting meshes (optional)
+    - pygmsh        # gives python front-end to gmsh meshing library
+    - ipywidgets    # for interactive widgets in Jupyter notebooks
+```
+
+- Create a conda environment using the environment file [fenics-conda-env.yml](fenics-conda-env.yml)
+```sh
+# below will create an environment named `confen` (name is specified in the environment file `fenics-conda-env.yml`)
+conda env create -f fenics-conda-env.yml 
+```
+
+- Test if new environment activates and works
+```sh
+# activate env
+conda activate confen
+
+# deactivate
+conda deactivate
+```
+
+- Test fenics code (**in below, replace the path to `conda.sh` file to the correct path for your installation, e.g., in Mac it could be in `/Users/<user name>/opt/anaconda3/etc/profile.d/`**)
+```sh
+# go to directory where fenics test code is
+cd fenics_test
+
+# exectute runFenics.sh script or follow the instructions here
+
+# source conda script (you may not need this if conda is set correctly in the shell)
+source $HOME/anaconda3/etc/profile.d/conda.sh
+
+# activate conda enviroment
+conda activate confen
+
+# run fenics example python script
+python ft01_poisson.py
+```
+
+- Visualize [fenics_test/results/solution.pvd](fenics_test/results/solution.pvd) or [fenics_test/results/solution000000.vtu](fenics_test/results/solution000000.vtu) file in paraview
+
+
+# create fenicsx environment
+
+- Take a look at fenics environment file [fenicsx-conda-env.yml](fenicsx-conda-env.yml) that has all the basic packages (you can add more to the list depending on the needs or remove, e.g., hippylib, pyvista, jupyterlab). The file looks as follows:
+```yml
+name: confenx       # name of the environment
+channels:
+  - conda
+  - conda-forge
+dependencies:
+  - fenics-dolfinx
+  - mpich           # for parallel computing support  
+  - pip             # to install pip packages
+  - matplotlib      # for plotting
+  - jupyter         # jupyter notebook
+  - scipy           # optional
+  - pip:
+    - h5py          # for HDF5 file support
+    - meshio        # for converting meshes
+    - pyvista[all,trame]    # for plotting and converting meshes (optional)
+    - pygmsh        # gives python front-end to gmsh meshing library
+    - ipywidgets    # for interactive widgets in Jupyter notebooks
+```
+
+- Create a conda environment using the environment file [fenicsx-conda-env.yml](fenicsx-conda-env.yml)
+```sh
+# below will create an environment named `confen` (name is specified in the environment file `fenics-conda-env.yml`)
+conda env create -f fenicsx-conda-env.yml 
+```
+
+- Test if new environment activates and works
+```sh
+# activate env
+conda activate confenx
+
+# deactivate
+conda deactivate
+```
+
+- Test fenicsx code (**in below, replace the path to `conda.sh` file to the correct path for your installation, e.g., in Mac it could be in `/Users/<user name>/opt/anaconda3/etc/profile.d/`**)
+```sh
+# go to directory where fenics test code is
+cd fenicsx_test
+
+# exectute runFenics.sh script or follow the instructions here
+
+# source conda script (you may not need this if conda is set correctly in the shell)
+source $HOME/anaconda3/etc/profile.d/conda.sh
+
+# activate conda enviroment
+conda activate confenx
+
+# run fenics example python script
+python ft01_poisson.py
+```
+
+- Visualize [fenicsx_test/results/solution.pvd](fenicsx_test/results/solution.pvd) or [fenicsx_test/results/solution000000.vtu](fenicsx_test/results/solution000000.vtu) file in paraview
