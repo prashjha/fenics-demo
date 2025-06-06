@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf Version="3.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <Domain>
+    <Grid Name="TimeSeries" GridType="Collection" CollectionType="Temporal">
+      <Grid Name="mesh" GridType="Uniform">
+        <Topology NumberOfElements="1920" TopologyType="Tetrahedron" NodesPerElement="4">
+          <DataItem Dimensions="1920 4" NumberType="UInt" Format="HDF">linear_elastic.h5:/Mesh/0/mesh/topology</DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Dimensions="525 3" Format="HDF">linear_elastic.h5:/Mesh/0/mesh/geometry</DataItem>
+        </Geometry>
+        <Time Value="0" />
+        <Attribute Name="u" AttributeType="Vector" Center="Node">
+          <DataItem Dimensions="525 3" Format="HDF">linear_elastic.h5:/VisualisationVector/0</DataItem>
+        </Attribute>
+        <Attribute Name="von Mises stress" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="525 1" Format="HDF">linear_elastic.h5:/VisualisationVector/1</DataItem>
+        </Attribute>
+        <Attribute Name="magnitude(u)" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="525 1" Format="HDF">linear_elastic.h5:/VisualisationVector/2</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="mesh" GridType="Uniform">
+        <Topology NumberOfElements="1920" TopologyType="Tetrahedron" NodesPerElement="4">
+          <DataItem Dimensions="1920 4" NumberType="UInt" Format="HDF">linear_elastic.h5:/Mesh/3/mesh/topology</DataItem>
+        </Topology>
+        <Geometry GeometryType="XYZ">
+          <DataItem Dimensions="525 3" Format="HDF">linear_elastic.h5:/Mesh/3/mesh/geometry</DataItem>
+        </Geometry>
+        <Time Value="1" />
+        <Attribute Name="u" AttributeType="Vector" Center="Node">
+          <DataItem Dimensions="525 3" Format="HDF">linear_elastic.h5:/VisualisationVector/3</DataItem>
+        </Attribute>
+        <Attribute Name="von Mises stress" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="525 1" Format="HDF">linear_elastic.h5:/VisualisationVector/4</DataItem>
+        </Attribute>
+        <Attribute Name="magnitude(u)" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="525 1" Format="HDF">linear_elastic.h5:/VisualisationVector/5</DataItem>
+        </Attribute>
+      </Grid>
+    </Grid>
+  </Domain>
+</Xdmf>
