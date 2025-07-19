@@ -9,9 +9,13 @@ dependencies:
   - matplotlib      # for plotting
   - jupyter         # jupyter notebook
   - scipy           # optional
+  - jax
   - pip:
     - h5py          # for HDF5 file support
     - meshio        # for converting meshes
     - pyvista[all,trame]    # for plotting and converting meshes (optional)
     - pygmsh        # gives python front-end to gmsh meshing library
     - ipywidgets    # for interactive widgets in Jupyter notebooks
+    - seaborn       # for statistical data visualization (optional)
+    - pympler       # for memory profiling (optional)
+    - torch         # for PyTorch support 
